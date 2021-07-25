@@ -34,7 +34,7 @@ std::string readData () {
 }
 
 
-
+ 
 //std::string *OldShipNames = nullptr;
 //std::string *NewShipName = nullptr;
 

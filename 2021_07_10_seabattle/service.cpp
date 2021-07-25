@@ -60,3 +60,4 @@ void ClearScreen()
 	
 	putp( tigetstr( "clear" ) );
 }
+

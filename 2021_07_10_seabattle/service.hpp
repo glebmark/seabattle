@@ -14,3 +14,4 @@ char* getStr( char* buffer , int maxRead );
 void ClearScreen();
 
 #endif /* service_hpp */
+

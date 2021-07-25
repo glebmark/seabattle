@@ -12,3 +12,4 @@
 void ships (char *typedKey, int shipSize);
 
 #endif /* shipCreator_hpp */
+

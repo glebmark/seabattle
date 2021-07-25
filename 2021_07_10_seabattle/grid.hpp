@@ -13,9 +13,9 @@
 void cycle();
 extern int *const posYp;
 extern int *const posXp;
-extern int *const posYshipOne1p;
-extern int *const posXshipOne1p;
-extern int *const posYshipOne2p;
-extern int *const posXshipOne2p;
+extern unsigned long *const posYshipOne1p;
+extern unsigned long *const posXshipOne1p;
+extern unsigned long *const posYshipOne2p;
+extern unsigned long *const posXshipOne2p;
 
 #endif /* grid_hpp */
