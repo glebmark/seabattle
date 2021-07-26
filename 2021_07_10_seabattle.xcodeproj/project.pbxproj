@@ -37,6 +37,7 @@
 		F716F5E52699C706005021E8 /* service.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = service.hpp; sourceTree = "<group>"; };
 		F716F5E72699F321005021E8 /* database.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = database.cpp; sourceTree = "<group>"; };
 		F716F5E82699F321005021E8 /* database.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = database.hpp; sourceTree = "<group>"; };
+		F71DB1AC26AEB1F100EB2669 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +54,7 @@
 		F716F5CB2699C65E005021E8 = {
 			isa = PBXGroup;
 			children = (
+				F71DB1AC26AEB1F100EB2669 /* README.md */,
 				F716F5D62699C65E005021E8 /* 2021_07_10_seabattle */,
 				F716F5D52699C65E005021E8 /* Products */,
 			);
