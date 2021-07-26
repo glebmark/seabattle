@@ -98,7 +98,7 @@ void cycle () {
 		std::cout << "It's buffer: " << stringBuffer << std::endl;
 		//getStr(stringBuffer , maxChars);
 		
-		
+		 
 		std::cout << "Type size of ship: 1, 2, 3 or 4" << std::endl;
 		std::cin >> shipSize;
 		if (shipSize == 1 || shipSize == 2 || shipSize == 3 || shipSize == 4) {
