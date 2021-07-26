@@ -25,9 +25,19 @@ unsigned long *const posXshipOne1p = &posXshipOne1;
 unsigned long posYshipOne2 = 0;
 unsigned long posXshipOne2 = 0;
 unsigned long *const posYshipOne2p = &posYshipOne2;
-unsigned long *const posXshipOne2p = &posYshipOne2;
+unsigned long *const posXshipOne2p = &posXshipOne2;
 
- 
+unsigned long posYshipOne3 = 0;
+unsigned long posXshipOne3 = 0;
+unsigned long *const posYshipOne3p = &posYshipOne3;
+unsigned long *const posXshipOne3p = &posXshipOne3;
+
+unsigned long posYshipOne4 = 0;
+unsigned long posXshipOne4 = 0;
+unsigned long *const posYshipOne4p = &posYshipOne4;
+unsigned long *const posXshipOne4p = &posXshipOne4;
+
+
 
 void grid(){
 	std::cout << "Void grid..." << std::endl;
@@ -40,7 +50,7 @@ void grid(){
 	std::string mesh[meshY][meshX] =
 	{
 		{" ","  "," 1 "," 2 "," 3 "," 4 "," 5 "," 6 "," 7 "," 8 "," 9 "," 10"," ",},//1
-		{"   ","---","---","---","---","---","---","---","---","---","---"},//2
+		{"   ","---","---","---","---","---","---","---","---","---","---"},		//2
 		{"1 ","|","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","|"},//3
 		{"2 ","|","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","|"},//4
 		{"3 ","|","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","|"},//5
@@ -51,14 +61,21 @@ void grid(){
 		{"8 ","|","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","|"},//10
 		{"9 ","|","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","|"},//11
 		{"10","|","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","|"},//12
-		{"   ","---","---","---","---","---","---","---","---","---","---"},//13
+		{"   ","---","---","---","---","---","---","---","---","---","---"},	   //13
 	};
 	
 	const std::string bb = "#";
 	mesh[*posYp][*posXp] = bb+bb+bb;
-	mesh[*posYshipOne1p + 1][*posXshipOne1p] = bb+bb+bb;
-	mesh[*posYshipOne2p][*posXshipOne2p] = bb+bb+bb;
-	
+	std::cout << "works1" << std::endl;
+//	if (*posYshipOne1p && *posXshipOne1p) {
+//		std::cout << "works2" << std::endl;
+//	mesh[*posYshipOne1p + 1][*posXshipOne1p + 1] = bb+bb+bb;
+//	}
+	mesh[*posYshipOne1p + 1][*posXshipOne1p + 1] = bb+bb+bb;
+	mesh[*posYshipOne2p + 1][*posXshipOne2p + 1] = bb+bb+bb;
+	 //shipTwo #1 and its coordinates
+	// shipTwo #1 + its second block coordinates
+	// other ships...
 	
 	
 	
@@ -87,14 +104,14 @@ void cycle () {
 	memset(   stringBuffer , 0 , maxChars+1 ); // initialize to 0
 	bool work = true;
 	int frames = 1;
-	
+	readData_of_Old_Names();
 	
 	std::cout << "Press 'h' for help\nUse 'wasd' for moving, 'q' for rotation and 'e' for placing of ship" << std::endl;
 	
 	while (work) {
 		int shipSize = 0;
 		*stringBuffer = 'x';
-		ClearScreen();
+		//ClearScreen();
 		std::cout << "It's buffer: " << stringBuffer << std::endl;
 		//getStr(stringBuffer , maxChars);
 		
