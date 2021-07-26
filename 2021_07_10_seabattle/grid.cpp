@@ -27,7 +27,7 @@ unsigned long posXshipOne2 = 0;
 unsigned long *const posYshipOne2p = &posYshipOne2;
 unsigned long *const posXshipOne2p = &posYshipOne2;
 
-
+ 
 
 void grid(){
 	std::cout << "Void grid..." << std::endl;
