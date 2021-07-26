@@ -126,6 +126,7 @@ void cycle () {
 			}
 			
 			//test2
+			//test4
 			ships (stringBuffer, shipSize);
 //			if (sizeShip == 1)
 //			{
