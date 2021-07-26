@@ -125,7 +125,7 @@ void cycle () {
 				break;
 			}
 			
-			
+			//test2
 			ships (stringBuffer, shipSize);
 //			if (sizeShip == 1)
 //			{
