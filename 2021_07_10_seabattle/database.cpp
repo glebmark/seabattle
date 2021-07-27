@@ -12,7 +12,7 @@
 using std::ifstream;
 extern int *const posYp;
 extern int *const posXp;
-
+//privet gleb
 
 
 std::string readData () {
