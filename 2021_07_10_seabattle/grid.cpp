@@ -12,6 +12,10 @@
 #include <unistd.h>
 #include "shipCreator.hpp"
 
+using std::string;
+using std::cout;
+using std::endl;
+
 int posY = 5;
 int posX = 5;
 int *const posYp = &posY;
@@ -71,8 +75,13 @@ void grid(){
 //		std::cout << "works2" << std::endl;
 //	mesh[*posYshipOne1p + 1][*posXshipOne1p + 1] = bb+bb+bb;
 //	}
+	//cout << "ERROR HERE in GRID"<< endl;
 	mesh[*posYshipOne1p + 1][*posXshipOne1p + 1] = bb+bb+bb;
+	//cout << "ERROR HERE in GRID2"<< endl;
 	mesh[*posYshipOne2p + 1][*posXshipOne2p + 1] = bb+bb+bb;
+	mesh[*posYshipOne3p + 1][*posXshipOne3p + 1] = bb+bb+bb;
+	mesh[*posYshipOne4p + 1][*posXshipOne4p + 1] = bb+bb+bb;
+	//cout << "ERROR HERE in GRID3"<< endl;
 	 //shipTwo #1 and its coordinates
 	// shipTwo #1 + its second block coordinates
 	// other ships...
@@ -111,22 +120,13 @@ void cycle () {
 	while (work) {
 		int shipSize = 0;
 		*stringBuffer = 'x';
-		//ClearScreen();
-		std::cout << "It's buffer: " << stringBuffer << std::endl;
-		//getStr(stringBuffer , maxChars);
 		
-		 
 		std::cout << "Type size of ship: 1, 2, 3 or 4" << std::endl;
 		std::cin >> shipSize;
 		if (shipSize == 1 || shipSize == 2 || shipSize == 3 || shipSize == 4) {
-		
-
-
-		
-
-		
+	
 		while(work) {
-			std::cout << "It's buffer INSIDE: " << stringBuffer << std::endl;
+			//std::cout << "It's buffer INSIDE: " << stringBuffer << std::endl;
 			getStr(stringBuffer , maxChars);
 			ClearScreen();
 				//		std::cout << "you typed: " << *stringBuffer << std::endl;
@@ -138,6 +138,7 @@ void cycle () {
 				break;
 			}
 			if (*stringBuffer == 'h') { // show help window
+				ClearScreen();
 				std::cout << "Press 'h' for help\nPress 1, 2, 3 or 4 for chosing size of ship\nPress 'p' for exit from program\nPress 'c' to change size of ship" << std::endl;
 				break;
 			}

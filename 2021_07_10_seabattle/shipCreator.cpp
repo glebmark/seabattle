@@ -27,90 +27,82 @@ using std::cout;
 using std::endl;
 
 
-
-string shipName = "ship"; // name of ship
-//string shipNameSize1 = "One"; // name of ship of size 1
-//string shipNameSize2 = "Two"; // name of ship of size 2
-//string shipNameSize3 = "Three"; // name of ship of size 3
-//string shipNameSize4 = "Four"; // name of ship of size 4
-// shipOne144shipOne278shipOne399shipOne487
-string shipNameSizeMesh[4] = {"One","Two","Thr","Fou"};
-//int shipNumber1 = 1; // number of such ship
-//int shipNumber2 = 2; // number of such ship
-//int shipNumber3 = 3; // number of such ship
-//int shipNumber4 = 4; // number of such ship
-
+string ParticularOldShipNameMesh[10] = {"shipOne1","shipOne2","shipOne3","shipOne4",\
+	"shipTwo1","shipTwo2","shipTwo3", "shipThr1","shipThr2","shipFou1",};
 
 string readData_of_Old_Names() {
 	cout << "start of read old names" << endl;
+	//string OldShipNames = " ";
 	string OldShipNames = readData(); // read ship names inside file
 	cout << "start read data" << endl;
+	cout << "OldShipNames: " << OldShipNames << endl;
 	
 	string shipNameSize = "";
-	int jk = 0;
-	for (int i = 0; i <= 3; i++) {
-		shipNameSize = shipNameSizeMesh[i];
-	
-		for (int i = 1; i <= 4; i++) {
-			std::size_t found; // finding position of first char of new full name of such ship inside all recorded names of ship
-			string number = std::to_string(i);
-			string ParticularOldShipName = shipName + shipNameSize + number; // shipOne1
-			
-			found = OldShipNames.find(ParticularOldShipName); // finding position of first char of particular full name of such ship inside all recorded names of ship
-			int found_int = static_cast<int>(found);
-			//cout << "its found: " << found_int + 2 << endl;
-			if (found!=std::string::npos) {} // find position of ParticularFullShipName in OldShipNames
-			
-			
-			//found_int = found_int + 1;
-			string posYship;
+	for (int i = 0; i <= 10; i++) {
+		
+		string ParticularOldShipName = ParticularOldShipNameMesh[i];
+		//cout << "ITS ParticularOldShipName: " << ParticularOldShipName << endl;
+		std::size_t found = 0; // finding position of first char of new full name of such ship inside all recorded names of ship
+		found = OldShipNames.find(ParticularOldShipName); // finding position of first char of particular full name of such ship inside all recorded names of ship
+		if (found!=std::string::npos) {} // find position of start of ParticularFullShipName in OldShipNames
+		int found_int = static_cast<int>(found); // size_t found to int found_int
+		
+		// record value of position Y in string type
+		string posYship;
+		try {
 			posYship = OldShipNames.at(found_int + 8);
-			
-			unsigned long posYship_int;
-			try {
-				posYship_int = stoi(posYship);
-			} catch (const std::invalid_argument &ia) {
-				std::cerr << "Invalid argument: " << ia.what() << std::endl;
-			}
-			std::cout << "posYship_int: " << posYship_int << std::endl;
-
-			/////////////////////////////////
-			string posXship;
-			posXship = OldShipNames.at(found_int + 9);
-			
-			unsigned long posXship_int;
-			try {
-				posXship_int = stoi(posXship);
-			} catch (const std::invalid_argument &ia) {
-				std::cerr << "Invalid argument: " << ia.what() << std::endl;
-			}
-//			cout << "ITS FOUND: " << found << endl;
-			std::cout << "posXship_int: " << posXship_int << std::endl;
-			
-			cout << "ParticularOldShipName is: " << ParticularOldShipName << endl;
-			
-			if (ParticularOldShipName == "shipOne1" && !found) {
-				cout << "ParticularOldShipName...ShipOne1..." << ParticularOldShipName << endl;
-				*posYshipOne1p = posYship_int;
-				*posXshipOne1p = posXship_int;
-			}
-			
-			if (ParticularOldShipName == "shipOne2" && found) {
-				cout << "ParticularOldShipName...shipOne2..." << ParticularOldShipName << endl;
-				*posYshipOne2p = posYship_int;
-				*posXshipOne2p = posXship_int;
-			}
-				
-			
-			
-			jk++;
-			cout << "second cycle for " << jk << endl;
-				
-			
 		}
+		catch (const std::out_of_range& oor) {
+			std::cerr << "Out of Range error: " << oor.what() << '\n';
+		}
+		
+		// transform string position Y into unsigned long
+		unsigned long posYship_int;
+		try {
+			posYship_int = stoi(posYship);
+		} catch (const std::invalid_argument &ia) {
+			std::cerr << "Invalid argument: " << ia.what() << std::endl;
+		}
+		
+		// record value of position X in string type
+		string posXship;
+		try {
+			posXship = OldShipNames.at(found_int + 9);
+		}
+		catch (const std::out_of_range& oor) {
+			std::cerr << "Out of Range error: " << oor.what() << '\n';
+		}
+		
+		// transform string position X into unsigned long
+		unsigned long posXship_int;
+		try {
+			posXship_int = stoi(posXship);
+		} catch (const std::invalid_argument &ia) {
+			std::cerr << "Invalid argument: " << ia.what() << std::endl;
+		}
+		
+		if (ParticularOldShipName == "shipOne1" && (strstr(OldShipNames.c_str(), ParticularOldShipName.c_str()))) {
+			*posYshipOne1p = posYship_int;
+			*posXshipOne1p = posXship_int;
+		}
+		
+		if (ParticularOldShipName == "shipOne2" && (strstr(OldShipNames.c_str(), ParticularOldShipName.c_str()))) {
+			*posYshipOne2p = posYship_int;
+			*posXshipOne2p = posXship_int;
+		}
+		if (ParticularOldShipName == "shipOne3" && (strstr(OldShipNames.c_str(), ParticularOldShipName.c_str()))) {
+			*posYshipOne3p = posYship_int;
+			*posXshipOne3p = posXship_int;
+		}
+		if (ParticularOldShipName == "shipOne4" && (strstr(OldShipNames.c_str(), ParticularOldShipName.c_str()))) {
+			*posYshipOne4p = posYship_int;
+			*posXshipOne4p = posXship_int;
+		}
+		
+		// more ships 2 and 3 and 4
 	
 	}
-	return "x";
+	return "";
 }
 
 
@@ -155,60 +147,17 @@ void ships (char *typedKey, int shipSize)
 	}
 	
 	if (*typedKey == 'e') {
-		
-		// if shipsize add here?
-		
-		
-
-		
-		
-//		std::string shipNumber = std::to_string(shipNumber1); // transform int number to string so it will be possible to concatenate number of such ship to new full name
-//		std::string NewFullShipName = shipName + shipNumber; // creating of new full name of such ship
-		
-
-		
-	
-//			shipNumber = std::to_string(shipNumber2);
-//			NewFullShipName = shipName + shipNumber;
-//			found = OldShipNames.find(NewFullShipName);
-//			if (found!=std::string::npos)
-//				std::cout << "first 'needle' found at: " << found << '\n';
-//			*posYshipOne2p = found + 8;
-//			*posXshipOne2p = found + 9;
-			
-			
-			
-			
-//			for (shipNumber1; shipNumber1 <= 4; shipNumber1++) {
-//				std::string shipNumber = std::to_string(shipNumber1);
-//				std::string NewFullShipName = shipName + shipNumber;
-//
-//
-				
-//				if (!(strstr(OldShipNames.c_str(), NewFullShipName.c_str()))) {
-//					writeData (OldShipNames, NewFullShipName, posYp, posXp);
-//					break;
-//				}
-				
-				
-				
-			//}
-			
-		
-		
-		
+		string OldShipNames = readData(); // read ship names inside file
+		if (shipSize == 1) {
+			for (int i = 0; i <=3; i++) {
+				string NewFullShipName = ParticularOldShipNameMesh[i];
+				if (!(strstr(OldShipNames.c_str(), NewFullShipName.c_str()))) {
+					writeData (OldShipNames, NewFullShipName, posYp, posXp);
+					readData_of_Old_Names();
+					break;
+				}
+			}
+		}
 	}
-	
-	
-	
-	
-	
-	
-		//std::string OldShipNames = "dsf";
-	
-	
-	
-	
-	
 }
 
