@@ -13,7 +13,7 @@ using std::ifstream;
 extern int *const posYp;
 extern int *const posXp;
 
-
+//privet
 
 std::string readData () {
 	ifstream indata; // indata is like cin
