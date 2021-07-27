@@ -14,7 +14,7 @@ extern int *const posYp;
 extern int *const posXp;
 
 //privet
-
+// fsdfsdfsdfsdf
 std::string readData () {
 	ifstream indata; // indata is like cin
 	std::string OldShipNames; // variable for input value
