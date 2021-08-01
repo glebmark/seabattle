@@ -7,8 +7,11 @@
 
 #include <iostream>
 #include "grid.hpp"
+#include "OS.hpp"
 
 int main(int argc, const char * argv[]) {
+	char x = *get_platform_name();
+	std::cout << "ITS OS: " << x << std::endl;
 	cycle(); // run main cycle
 	return 0;
 }
