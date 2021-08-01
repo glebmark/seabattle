@@ -12,6 +12,7 @@
 
 
 
+extern const char *const platform;
 
 #include <iostream>
 #include "grid.hpp"
@@ -23,6 +24,7 @@
 using std::string;
 using std::cout;
 using std::endl;
+
 
 int posY = 5;
 int posX = 5;

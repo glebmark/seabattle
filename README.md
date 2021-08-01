@@ -4,6 +4,9 @@ It is my first study project written in c++. I had been coding it for couple of 
 This version of Sea Battle (also known as Battleship) designed to be purely a terminal game.
 Multiple players and remote access via TCP are going to be added soon.
 
+tested on Macos 11.2.1
+linker settings: -lcurses
+
 todo:
 - add support of Windows and Linux
 - forbid add new ships

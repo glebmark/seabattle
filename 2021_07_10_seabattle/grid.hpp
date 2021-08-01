@@ -24,3 +24,4 @@ extern unsigned long *const posXshipOne4p;
 
 
 #endif /* grid_hpp */
+
