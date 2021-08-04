@@ -9,11 +9,6 @@
 
 
 
-
-
-
-extern const char *const platform;
-
 #include <iostream>
 #include "grid.hpp"
 #include "service.hpp"
@@ -109,7 +104,6 @@ void grid(){
 	}
 	
 }
-
 
 
 
