@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include <string>
-void ships (char *typedKey, int shipSize);
-std::string readData_of_Old_Names();
+void ships (char *typedKey, int shipSize, int gameMode);
+std::string readData_of_Old_Names(int gameMode);
 #endif /* shipCreator_hpp */
 

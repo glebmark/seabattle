@@ -4,7 +4,7 @@
 //
 //  Created by Gleb Markin on 10.07.2021.
 //
-extern const char *const platform;
+//extern const char *const platform;
 #include <termios.h>
 #include <term.h>
 #include "service.hpp"

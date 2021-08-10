@@ -14,7 +14,7 @@
 extern int *const posYp;
 extern int *const posXp;
 
-std::string readData();
+std::string readData(int gameMode);
 int writeData (std::string OldShipNames, std::string NewShipName, int *posYp, int *posXp);
 
 

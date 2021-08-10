@@ -12,6 +12,7 @@
 		F716F5E32699C6C7005021E8 /* shipCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F716F5E12699C6C7005021E8 /* shipCreator.cpp */; };
 		F716F5E62699C706005021E8 /* service.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F716F5E42699C706005021E8 /* service.cpp */; };
 		F716F5E92699F321005021E8 /* database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F716F5E72699F321005021E8 /* database.cpp */; };
+		F740681A26C2C8BC001E7BF4 /* attackMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F740681826C2C8BC001E7BF4 /* attackMode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,8 @@
 		F716F5E72699F321005021E8 /* database.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = database.cpp; sourceTree = "<group>"; };
 		F716F5E82699F321005021E8 /* database.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = database.hpp; sourceTree = "<group>"; };
 		F71DB1AC26AEB1F100EB2669 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F740681826C2C8BC001E7BF4 /* attackMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = attackMode.cpp; sourceTree = "<group>"; };
+		F740681926C2C8BC001E7BF4 /* attackMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = attackMode.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 		F716F5D62699C65E005021E8 /* 2021_07_10_seabattle */ = {
 			isa = PBXGroup;
 			children = (
+				F740681826C2C8BC001E7BF4 /* attackMode.cpp */,
+				F740681926C2C8BC001E7BF4 /* attackMode.hpp */,
 				F716F5D72699C65E005021E8 /* main.cpp */,
 				F716F5E42699C706005021E8 /* service.cpp */,
 				F716F5E52699C706005021E8 /* service.hpp */,
@@ -140,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F740681A26C2C8BC001E7BF4 /* attackMode.cpp in Sources */,
 				F716F5D82699C65E005021E8 /* main.cpp in Sources */,
 				F716F5E62699C706005021E8 /* service.cpp in Sources */,
 				F716F5E32699C6C7005021E8 /* shipCreator.cpp in Sources */,

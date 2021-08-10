@@ -1,9 +1,9 @@
-//
-//  grid.cpp
-//  2021_07_10_seabattle
-//
-//  Created by Gleb Markin on 10.07.2021.
-//
+	//
+	//  grid.cpp
+	//  2021_07_10_seabattle
+	//
+	//  Created by Gleb Markin on 10.07.2021.
+	//
 
 
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "shipCreator.hpp"
+#include "attackMode.hpp"
 
 using std::string;
 using std::cout;
@@ -116,16 +117,21 @@ unsigned long posXshipFou1_4 = 0;
 unsigned long *posYshipFou1p_4 = &posYshipFou1_4;
 unsigned long *posXshipFou1p_4 = &posXshipFou1_4;
 
+int player = 0;
+int *const player_p = &player;
+
+int gameMode_var = 0;
+int *const gameMode = &gameMode_var;
 
 
 void grid(){
 	std::cout << "Void grid..." << std::endl;
-	//*typedKey = 'k';
+		//*typedKey = 'k';
 	
-	// mesh size
+		// mesh size
 	const int meshX = 13;
 	const int meshY = 13;
-	// mesh
+		// mesh
 	std::string mesh[meshY][meshX] =
 	{
 		{" ","  "," 1 "," 2 "," 3 "," 4 "," 5 "," 6 "," 7 "," 8 "," 9 "," 10"," ",},//1
@@ -146,10 +152,15 @@ void grid(){
 	const std::string bb = "#";
 	mesh[*posYp][*posXp] = bb+bb+bb;
 	std::cout << "works1" << std::endl;
-//	if (*posYshipOne1p && *posXshipOne1p) {
-//		std::cout << "works2" << std::endl;
-//	mesh[*posYshipOne1p + 1][*posXshipOne1p + 1] = bb+bb+bb;
-//	}
+		//	if (*posYshipOne1p && *posXshipOne1p) {
+		//		std::cout << "works2" << std::endl;
+		//	mesh[*posYshipOne1p + 1][*posXshipOne1p + 1] = bb+bb+bb;
+		//	}
+	
+	if (*gameMode == 2) {
+		// do not draw positions of enemy
+	}
+	else {
 	
 	mesh[*posYshipOne1p + 1][*posXshipOne1p + 1] = bb+bb+bb;
 	
@@ -178,10 +189,10 @@ void grid(){
 	mesh[*posYshipFou1p_2 + 1][*posXshipFou1p_2 + 1] = bb+bb+bb;
 	mesh[*posYshipFou1p_3 + 1][*posXshipFou1p_3 + 1] = bb+bb+bb;
 	mesh[*posYshipFou1p_4 + 1][*posXshipFou1p_4 + 1] = bb+bb+bb;
-	 //shipTwo #1 and its coordinates
-	// shipTwo #1 + its second block coordinates
-	// other ships...
-	
+		//shipTwo #1 and its coordinates
+		// shipTwo #1 + its second block coordinates
+		// other ships...
+	}
 	
 	
 	
@@ -198,9 +209,9 @@ void grid(){
 
 
 
-//
-// while cycle start here
-//
+	//
+	// while cycle start here
+	//
 void cycle () {
 	std::cout << "Cycle began..." << std::endl;
 	const int maxChars = 1;
@@ -208,54 +219,87 @@ void cycle () {
 	memset(   stringBuffer , 0 , maxChars+1 ); // initialize to 0
 	bool work = true;
 	int frames = 1;
-	readData_of_Old_Names();
+	//int player;
+	cout << "Choose player - 1 or 2" << endl;
+	std::cin >> *player_p;
 	
 	std::cout << "Press 'h' for help\nUse 'wasd' for moving, 'q' for rotation and 'e' for placing of ship" << std::endl;
 	
 	while (work) {
-		int shipSize = 0;
-		*stringBuffer = 'x';
-		std::cout << "Type size of ship: 1, 2, 3 or 4" << std::endl;
-		std::cin >> shipSize;
-		if (shipSize == 1 || shipSize == 2 || shipSize == 3 || shipSize == 4) {
-	
-		while(work) {
-			getStr(stringBuffer , maxChars);
-			ClearScreen();
+		cout << "Choose mode - ships placement or attack hostile ships" << endl;
+		cout << "1 - ships placement" << endl;
+		cout << "2 - attack" << endl;
+		
+		std::cin >> *gameMode;
+		if (*gameMode == 1) { // DEFENCE MODE
+			readData_of_Old_Names(*gameMode); // see file shipCreator.cpp
+			while (work) {
+				int shipSize = 0;
+				*stringBuffer = 'x';
+				std::cout << "Type size of ship: 1, 2, 3 or 4" << std::endl;
+				std::cin >> shipSize;
+				if (shipSize == 1 || shipSize == 2 || shipSize == 3 || shipSize == 4) {
+					
+					while(work) {
+						getStr(stringBuffer , maxChars);
+						ClearScreen();
+						if (*stringBuffer == 'p') { // to FULL EXIT from program
+							break;
+						}
+						if (*stringBuffer == 'c') { // to exit to choosing between sizes of ships
+							break;
+						}
+//						if (*stringBuffer == 'f') { // to exit to choosing between defence or attack mode
+//							break;
+//						}
+						if (*stringBuffer == 'h') { // show help window
+							ClearScreen();
+							std::cout << "Press 'h' for help\nPress 1, 2, 3 or 4 for chosing size of ship\nPress 'p' for exit from program\nPress 'c' to change size of ship" << std::endl;
+							break;
+						}
+						
+						ships (stringBuffer, shipSize, *gameMode);
+						
+						std::cout << "Press 'h' for help." << std::endl;
+						std::cout << "Y-coordinate: " << posY - 1 << std::endl;
+						std::cout << "X-coordinate: " << posX - 1 << std::endl;
+						grid(); // draw grid
+						frames++;
+						std::cout << "frames showed: " << frames << std::endl;
+					}
+//					if (*stringBuffer == 'f') { // to exit to choosing between defence or attack mode
+//						break;
+//					}
+					
+				}	else {
+					ClearScreen();
+					std::cout << "You haven't typed an integer!" << std::endl;
+					std::cin.clear(); //clear bad input flag
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
+					
+				}
+				
+				frames++;
+				std::cout << "frames showed: " << frames << std::endl;
+				if (*stringBuffer == 'p') { // FULL EXIT from program
+					break;
+				}
+			}
 			if (*stringBuffer == 'p') { // to FULL EXIT from program
 				break;
 			}
-			if (*stringBuffer == 'c') { // to change size of ship
+		} else if (*gameMode == 2) { // ATTACK MODE
+			
+			attack(*gameMode); // from file attackMode.cpp
+			
+			if (*stringBuffer == 'p') { // to FULL EXIT from program
 				break;
 			}
-			if (*stringBuffer == 'h') { // show help window
-				ClearScreen();
-				std::cout << "Press 'h' for help\nPress 1, 2, 3 or 4 for chosing size of ship\nPress 'p' for exit from program\nPress 'c' to change size of ship" << std::endl;
-				break;
-			}
-			
-			ships (stringBuffer, shipSize);
-			
-			std::cout << "Press 'h' for help." << std::endl;
-			std::cout << "Y-coordinate: " << posY - 1 << std::endl;
-			std::cout << "X-coordinate: " << posX - 1 << std::endl;
-			grid(); // draw grid
-			frames++;
-			std::cout << "frames showed: " << frames << std::endl;
-		}
-		}	else {
+		} else {
 			ClearScreen();
 			std::cout << "You haven't typed an integer!" << std::endl;
 			std::cin.clear(); //clear bad input flag
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
-			
-			//continue;
-		}
-		
-		frames++;
-		std::cout << "frames showed: " << frames << std::endl;
-		if (*stringBuffer == 'p') { // FULL EXIT from program
-			break;
 		}
 	}
 }

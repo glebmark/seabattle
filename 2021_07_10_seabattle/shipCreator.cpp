@@ -65,12 +65,19 @@ using std::tuple;
 using std::vector;
 
 
+
 string ParticularOldShipNameMesh[10] = {"shipOne1","shipOne2","shipOne3","shipOne4",\
 	"shipTwo1","shipTwo2","shipTwo3", "shipThr1","shipThr2","shipFou1",};
 
-string readData_of_Old_Names() {
+string readData_of_Old_Names(int gameMode) {
 	cout << "start of read old names" << endl;
-	string OldShipNames = readData(); // read ship names inside file
+	string OldShipNames;
+	if (gameMode == 1) { // DEFENCE MODE
+		OldShipNames = readData(gameMode); // read ship names inside file - see file database.cpp
+	} else if (gameMode == 2) {
+		OldShipNames = readData(gameMode); // read ship names inside file - see file database.cpp
+	}
+	
 	cout << "start read data" << endl;
 	cout << "OldShipNames: " << OldShipNames << endl;
 	
@@ -209,8 +216,7 @@ string readData_of_Old_Names() {
 
 
 
-void ships (char *typedKey, int shipSize)
-{
+void ships (char *typedKey, int shipSize, int gameMode) {
 	if (*typedKey == 'w')
 	{
 		if (*posYp == 2) {
@@ -250,54 +256,108 @@ void ships (char *typedKey, int shipSize)
 	
 	
 	if (*typedKey == 'e') {
-		string OldShipNames = readData(); // read ship names inside file
-		vector<int> recordedYX;
-		recordedYX.push_back(*posYshipOne1p);
-		recordedYX.push_back(*posXshipOne1p);
-		recordedYX.push_back(*posYshipOne2p);
-		recordedYX.push_back(*posXshipOne2p);
-		recordedYX.push_back(*posYshipOne3p);
-		recordedYX.push_back(*posXshipOne3p);
-		recordedYX.push_back(*posYshipOne4p);
-		recordedYX.push_back(*posXshipOne4p);
+		string OldShipNames = readData(gameMode); // read ship names inside file
 		
-		recordedYX.push_back(*posYshipTwo1p);
-		recordedYX.push_back(*posXshipTwo1p);
-		recordedYX.push_back(*posYshipTwo1p_2);
-		recordedYX.push_back(*posXshipTwo1p_2);
+		vector<unsigned long> recordedYX = { // load all recorded coordinates from player1.txt or player2.txt
+			*posYshipOne1p,
+			*posXshipOne1p,
+			*posYshipOne2p,
+			*posXshipOne2p,
+			*posYshipOne3p,
+			*posXshipOne3p,
+			*posYshipOne4p,
+			*posXshipOne4p,
+			
+			*posYshipTwo1p,
+			*posXshipTwo1p,
+			*posYshipTwo1p_2,
+			*posXshipTwo1p_2,
+			
+			*posYshipTwo2p,
+			*posXshipTwo2p,
+			*posYshipTwo2p_2,
+			*posXshipTwo2p_2,
+			
+			*posYshipTwo3p,
+			*posXshipTwo3p,
+			*posYshipTwo3p_2,
+			*posXshipTwo3p_2,
+			
+			*posYshipThr1p,
+			*posXshipThr1p,
+			*posYshipThr1p_2,
+			*posXshipThr1p_2,
+			*posYshipThr1p_3,
+			*posXshipThr1p_3,
+			
+			*posYshipThr2p,
+			*posXshipThr2p,
+			*posYshipThr2p_2,
+			*posXshipThr2p_2,
+			*posYshipThr2p_3,
+			*posXshipThr2p_3,
+			
+			*posYshipFou1p,
+			*posXshipFou1p,
+			*posYshipFou1p_2,
+			*posXshipFou1p_2,
+			*posYshipFou1p_3,
+			*posXshipFou1p_3,
+			*posYshipFou1p_4,
+			*posXshipFou1p_4,
+		};
 		
-		recordedYX.push_back(*posYshipTwo2p);
-		recordedYX.push_back(*posXshipTwo2p);
-		recordedYX.push_back(*posYshipTwo2p_2);
-		recordedYX.push_back(*posXshipTwo2p_2);
+//		vector<unsigned long> recordedYX;
+//		for (int i = 0; i <= 40; i++) {
+//			recordedYX.push_back(coordinates[i]);
+//		}
 		
-		recordedYX.push_back(*posYshipTwo3p);
-		recordedYX.push_back(*posXshipTwo3p);
-		recordedYX.push_back(*posYshipTwo3p_2);
-		recordedYX.push_back(*posXshipTwo3p_2);
-		
-		recordedYX.push_back(*posYshipThr1p);
-		recordedYX.push_back(*posYshipThr1p);
-		recordedYX.push_back(*posYshipThr1p_2);
-		recordedYX.push_back(*posXshipThr1p_2);
-		recordedYX.push_back(*posYshipThr1p_3);
-		recordedYX.push_back(*posXshipThr1p_3);
-		
-		recordedYX.push_back(*posYshipThr2p);
-		recordedYX.push_back(*posYshipThr2p);
-		recordedYX.push_back(*posYshipThr2p_2);
-		recordedYX.push_back(*posXshipThr2p_2);
-		recordedYX.push_back(*posYshipThr2p_3);
-		recordedYX.push_back(*posXshipThr2p_3);
-		
-		recordedYX.push_back(*posYshipFou1p);
-		recordedYX.push_back(*posYshipFou1p);
-		recordedYX.push_back(*posYshipFou1p_2);
-		recordedYX.push_back(*posXshipFou1p_2);
-		recordedYX.push_back(*posYshipFou1p_3);
-		recordedYX.push_back(*posXshipFou1p_3);
-		recordedYX.push_back(*posYshipFou1p_4);
-		recordedYX.push_back(*posXshipFou1p_4);
+//		recordedYX.push_back(*posYshipOne1p);
+//		recordedYX.push_back(*posXshipOne1p);
+//		recordedYX.push_back(*posYshipOne2p);
+//		recordedYX.push_back(*posXshipOne2p);
+//		recordedYX.push_back(*posYshipOne3p);
+//		recordedYX.push_back(*posXshipOne3p);
+//		recordedYX.push_back(*posYshipOne4p);
+//		recordedYX.push_back(*posXshipOne4p);
+//
+//		recordedYX.push_back(*posYshipTwo1p);
+//		recordedYX.push_back(*posXshipTwo1p);
+//		recordedYX.push_back(*posYshipTwo1p_2);
+//		recordedYX.push_back(*posXshipTwo1p_2);
+//
+//		recordedYX.push_back(*posYshipTwo2p);
+//		recordedYX.push_back(*posXshipTwo2p);
+//		recordedYX.push_back(*posYshipTwo2p_2);
+//		recordedYX.push_back(*posXshipTwo2p_2);
+//
+//		recordedYX.push_back(*posYshipTwo3p);
+//		recordedYX.push_back(*posXshipTwo3p);
+//		recordedYX.push_back(*posYshipTwo3p_2);
+//		recordedYX.push_back(*posXshipTwo3p_2);
+//
+//		recordedYX.push_back(*posYshipThr1p);
+//		recordedYX.push_back(*posYshipThr1p);
+//		recordedYX.push_back(*posYshipThr1p_2);
+//		recordedYX.push_back(*posXshipThr1p_2);
+//		recordedYX.push_back(*posYshipThr1p_3);
+//		recordedYX.push_back(*posXshipThr1p_3);
+//
+//		recordedYX.push_back(*posYshipThr2p);
+//		recordedYX.push_back(*posYshipThr2p);
+//		recordedYX.push_back(*posYshipThr2p_2);
+//		recordedYX.push_back(*posXshipThr2p_2);
+//		recordedYX.push_back(*posYshipThr2p_3);
+//		recordedYX.push_back(*posXshipThr2p_3);
+//
+//		recordedYX.push_back(*posYshipFou1p);
+//		recordedYX.push_back(*posYshipFou1p);
+//		recordedYX.push_back(*posYshipFou1p_2);
+//		recordedYX.push_back(*posXshipFou1p_2);
+//		recordedYX.push_back(*posYshipFou1p_3);
+//		recordedYX.push_back(*posXshipFou1p_3);
+//		recordedYX.push_back(*posYshipFou1p_4);
+//		recordedYX.push_back(*posXshipFou1p_4);
 		
 		//add all coordinates of ships
 		
@@ -308,7 +368,7 @@ void ships (char *typedKey, int shipSize)
 			
 			std::cout << "ITS posY!!!: " << posY << endl;
 			std::cout << "ITS posX!!!: " << posX << endl;
-		for (int x : recordedYX) {
+		for (unsigned long x : recordedYX) {
 			cout << "its recordedPosYX" << x << " ";
 		}
 		
@@ -331,7 +391,7 @@ void ships (char *typedKey, int shipSize)
 					if (!(strstr(OldShipNames.c_str(), NewFullShipName.c_str()))) {
 						writeData (OldShipNames, NewFullShipName, posYp, posXp);
 						std::cout << "WRITING..." << endl;
-						readData_of_Old_Names();
+						readData_of_Old_Names(gameMode);
 						break;
 					}
 				}
@@ -342,7 +402,7 @@ void ships (char *typedKey, int shipSize)
 					if (!(strstr(OldShipNames.c_str(), NewFullShipName.c_str()))) {
 						writeData (OldShipNames, NewFullShipName, posYp, posXp);
 						std::cout << "WRITING..." << endl;
-						readData_of_Old_Names();
+						readData_of_Old_Names(gameMode);
 						break;
 					}
 				}
@@ -353,7 +413,7 @@ void ships (char *typedKey, int shipSize)
 					if (!(strstr(OldShipNames.c_str(), NewFullShipName.c_str()))) {
 						writeData (OldShipNames, NewFullShipName, posYp, posXp);
 						std::cout << "WRITING..." << endl;
-						readData_of_Old_Names();
+						readData_of_Old_Names(gameMode);
 						break;
 					}
 				}
@@ -364,7 +424,7 @@ void ships (char *typedKey, int shipSize)
 				if (!(strstr(OldShipNames.c_str(), NewFullShipName.c_str()))) {
 					writeData (OldShipNames, NewFullShipName, posYp, posXp);
 					std::cout << "WRITING..." << endl;
-					readData_of_Old_Names();
+					readData_of_Old_Names(gameMode);
 //					break;
 				}
 //				for (int i = 9; i <=9; i++) {

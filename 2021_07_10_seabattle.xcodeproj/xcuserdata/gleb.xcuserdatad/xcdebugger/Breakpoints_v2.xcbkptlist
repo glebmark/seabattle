@@ -14,9 +14,9 @@
             filePath = "2021_07_10_seabattle/shipCreator.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "ships(typedKey, shipSize)"
+            startingLineNumber = "362"
+            endingLineNumber = "362"
+            landmarkName = "ships(typedKey, shipSize, gameMode)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

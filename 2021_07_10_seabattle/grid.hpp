@@ -11,6 +11,7 @@
 #include <stdio.h>
 
 void cycle();
+void grid();
 extern int *const posYp;
 extern int *const posXp;
 extern unsigned long *const posYshipOne1p;
@@ -67,6 +68,9 @@ extern unsigned long *posYshipFou1p_3;
 extern unsigned long *posXshipFou1p_3;
 extern unsigned long *posYshipFou1p_4;
 extern unsigned long *posXshipFou1p_4;
+
+extern int *const player_p;
+extern int *const gameMode;
 
 
 #endif /* grid_hpp */
