@@ -12,6 +12,9 @@ extern const char *const platform;
 
 
 
+
+
+
 	// get typed key
 char *getStr( char *buffer , int maxRead ) {
 	int  numRead  = 0;

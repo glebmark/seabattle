@@ -46,6 +46,76 @@ unsigned long posXshipOne4 = 0;
 unsigned long *const posYshipOne4p = &posYshipOne4;
 unsigned long *const posXshipOne4p = &posXshipOne4;
 
+unsigned long posYshipTwo1 = 0;
+unsigned long posXshipTwo1 = 0;
+unsigned long *const posYshipTwo1p = &posYshipTwo1;
+unsigned long *const posXshipTwo1p = &posXshipTwo1;
+unsigned long posYshipTwo1_2 = 0;
+unsigned long posXshipTwo1_2 = 0;
+unsigned long *posYshipTwo1p_2 = &posYshipTwo1_2;
+unsigned long *posXshipTwo1p_2 = &posXshipTwo1_2;
+
+unsigned long posYshipTwo2 = 0;
+unsigned long posXshipTwo2 = 0;
+unsigned long *const posYshipTwo2p = &posYshipTwo2;
+unsigned long *const posXshipTwo2p = &posXshipTwo2;
+unsigned long posYshipTwo2_2 = 0;
+unsigned long posXshipTwo2_2 = 0;
+unsigned long *posYshipTwo2p_2 = &posYshipTwo2_2;
+unsigned long *posXshipTwo2p_2 = &posXshipTwo2_2;
+
+unsigned long posYshipTwo3 = 0;
+unsigned long posXshipTwo3 = 0;
+unsigned long *const posYshipTwo3p = &posYshipTwo3;
+unsigned long *const posXshipTwo3p = &posXshipTwo3;
+unsigned long posYshipTwo3_2 = 0;
+unsigned long posXshipTwo3_2 = 0;
+unsigned long *posYshipTwo3p_2 = &posYshipTwo3_2;
+unsigned long *posXshipTwo3p_2 = &posXshipTwo3_2;
+
+unsigned long posYshipThr1 = 0;
+unsigned long posXshipThr1 = 0;
+unsigned long *const posYshipThr1p = &posYshipThr1;
+unsigned long *const posXshipThr1p = &posXshipThr1;
+unsigned long posYshipThr1_2 = 0;
+unsigned long posXshipThr1_2 = 0;
+unsigned long *posYshipThr1p_2 = &posYshipThr1_2;
+unsigned long *posXshipThr1p_2 = &posXshipThr1_2;
+unsigned long posYshipThr1_3 = 0;
+unsigned long posXshipThr1_3 = 0;
+unsigned long *posYshipThr1p_3 = &posYshipThr1_3;
+unsigned long *posXshipThr1p_3 = &posXshipThr1_3;
+
+unsigned long posYshipThr2 = 0;
+unsigned long posXshipThr2 = 0;
+unsigned long *const posYshipThr2p = &posYshipThr2;
+unsigned long *const posXshipThr2p = &posXshipThr2;
+unsigned long posYshipThr2_2 = 0;
+unsigned long posXshipThr2_2 = 0;
+unsigned long *posYshipThr2p_2 = &posYshipThr2_2;
+unsigned long *posXshipThr2p_2 = &posXshipThr2_2;
+unsigned long posYshipThr2_3 = 0;
+unsigned long posXshipThr2_3 = 0;
+unsigned long *posYshipThr2p_3 = &posYshipThr2_3;
+unsigned long *posXshipThr2p_3 = &posXshipThr2_3;
+
+unsigned long posYshipFou1 = 0;
+unsigned long posXshipFou1 = 0;
+unsigned long *const posYshipFou1p = &posYshipFou1;
+unsigned long *const posXshipFou1p = &posXshipFou1;
+unsigned long posYshipFou1_2 = 0;
+unsigned long posXshipFou1_2 = 0;
+unsigned long *posYshipFou1p_2 = &posYshipFou1_2;
+unsigned long *posXshipFou1p_2 = &posXshipFou1_2;
+unsigned long posYshipFou1_3 = 0;
+unsigned long posXshipFou1_3 = 0;
+unsigned long *posYshipFou1p_3 = &posYshipFou1_3;
+unsigned long *posXshipFou1p_3 = &posXshipFou1_3;
+unsigned long posYshipFou1_4 = 0;
+unsigned long posXshipFou1_4 = 0;
+unsigned long *posYshipFou1p_4 = &posYshipFou1_4;
+unsigned long *posXshipFou1p_4 = &posXshipFou1_4;
+
 
 
 void grid(){
@@ -80,13 +150,34 @@ void grid(){
 //		std::cout << "works2" << std::endl;
 //	mesh[*posYshipOne1p + 1][*posXshipOne1p + 1] = bb+bb+bb;
 //	}
-	//cout << "ERROR HERE in GRID"<< endl;
+	
 	mesh[*posYshipOne1p + 1][*posXshipOne1p + 1] = bb+bb+bb;
-	//cout << "ERROR HERE in GRID2"<< endl;
+	
 	mesh[*posYshipOne2p + 1][*posXshipOne2p + 1] = bb+bb+bb;
 	mesh[*posYshipOne3p + 1][*posXshipOne3p + 1] = bb+bb+bb;
 	mesh[*posYshipOne4p + 1][*posXshipOne4p + 1] = bb+bb+bb;
-	//cout << "ERROR HERE in GRID3"<< endl;
+	
+	mesh[*posYshipTwo1p + 1][*posXshipTwo1p + 1] = bb+bb+bb;
+	mesh[*posYshipTwo1p_2 + 1][*posXshipTwo1p_2 + 1] = bb+bb+bb;
+	
+	mesh[*posYshipTwo2p + 1][*posXshipTwo2p + 1] = bb+bb+bb;
+	mesh[*posYshipTwo2p_2 + 1][*posXshipTwo2p_2 + 1] = bb+bb+bb;
+	
+	mesh[*posYshipTwo3p + 1][*posXshipTwo3p + 1] = bb+bb+bb;
+	mesh[*posYshipTwo3p_2 + 1][*posXshipTwo3p_2 + 1] = bb+bb+bb;
+	
+	mesh[*posYshipThr1p + 1][*posXshipThr1p + 1] = bb+bb+bb;
+	mesh[*posYshipThr1p_2 + 1][*posXshipThr1p_2 + 1] = bb+bb+bb;
+	mesh[*posYshipThr1p_3 + 1][*posXshipThr1p_3 + 1] = bb+bb+bb;
+	
+	mesh[*posYshipThr2p + 1][*posXshipThr2p + 1] = bb+bb+bb;
+	mesh[*posYshipThr2p_2 + 1][*posXshipThr2p_2 + 1] = bb+bb+bb;
+	mesh[*posYshipThr2p_3 + 1][*posXshipThr2p_3 + 1] = bb+bb+bb;
+	
+	mesh[*posYshipFou1p + 1][*posXshipFou1p + 1] = bb+bb+bb;
+	mesh[*posYshipFou1p_2 + 1][*posXshipFou1p_2 + 1] = bb+bb+bb;
+	mesh[*posYshipFou1p_3 + 1][*posXshipFou1p_3 + 1] = bb+bb+bb;
+	mesh[*posYshipFou1p_4 + 1][*posXshipFou1p_4 + 1] = bb+bb+bb;
 	 //shipTwo #1 and its coordinates
 	// shipTwo #1 + its second block coordinates
 	// other ships...
@@ -124,17 +215,13 @@ void cycle () {
 	while (work) {
 		int shipSize = 0;
 		*stringBuffer = 'x';
-		
 		std::cout << "Type size of ship: 1, 2, 3 or 4" << std::endl;
 		std::cin >> shipSize;
 		if (shipSize == 1 || shipSize == 2 || shipSize == 3 || shipSize == 4) {
 	
 		while(work) {
-			//std::cout << "It's buffer INSIDE: " << stringBuffer << std::endl;
 			getStr(stringBuffer , maxChars);
 			ClearScreen();
-				//		std::cout << "you typed: " << *stringBuffer << std::endl;
-			
 			if (*stringBuffer == 'p') { // to FULL EXIT from program
 				break;
 			}
@@ -147,31 +234,12 @@ void cycle () {
 				break;
 			}
 			
-			//test2
-			//test4
 			ships (stringBuffer, shipSize);
-//			if (sizeShip == 1)
-//			{
-//				ship1 (stringBuffer);
-//			} else if (sizeShip == 2) {
-//					//ship2 (stringBuffer);
-//			} else if (sizeShip == 3) {
-//					//ship3 (stringBuffer);
-//			} else if (sizeShip == 4) {
-//					//ship4 (stringBuffer);
-//			} else {
-//				std::cout << "You typed wrong size of ship!" << std::endl;
-//				break;
-//			}
 			
 			std::cout << "Press 'h' for help." << std::endl;
 			std::cout << "Y-coordinate: " << posY - 1 << std::endl;
 			std::cout << "X-coordinate: " << posX - 1 << std::endl;
 			grid(); // draw grid
-			
-			
-			
-				//std::cout << "you typed AFTER: " << *stringBuffer << std::endl;
 			frames++;
 			std::cout << "frames showed: " << frames << std::endl;
 		}

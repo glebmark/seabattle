@@ -10,6 +10,7 @@ linker settings: -lcurses
 
 todo:
 - forbid add new ships //done!
-- add write function calling which will write some service value at begin of file - it is needed to prevent reading into variable "found" zero value, which broke checking if statement at first ship
+- add write function calling which will write some service value at begin of file - it is needed to prevent reading into variable "found" zero value, which broke checking if statement at first ship // not needed anymore
+- add more types of ships (2, 3, 4 - size) //done!
 - decide wether program will allow place vertical ships, or just horizontal
 - delete showing zero zero pointer
